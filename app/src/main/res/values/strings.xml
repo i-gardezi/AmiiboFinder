@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Amiibo Finder</string>
+    <string name="base_url">http://www.amiiboapi.com/</string>
+</resources>
