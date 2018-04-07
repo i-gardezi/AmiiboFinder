@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Amiibo Finder</string>
-    <string name="base_url">http://www.amiiboapi.com/</string>
+    <string name="base_url">http://www.amiiboapi.com/api/</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

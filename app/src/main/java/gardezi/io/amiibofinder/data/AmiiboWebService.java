@@ -15,9 +15,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AmiiboWebService {
 
-    AmiiboApi api;
+    private AmiiboApi api;
 
-    public AmiiboWebService(Application application) {
+    AmiiboWebService(Application application) {
         api = new Retrofit.Builder()
                 .baseUrl(application.getResources().getString(R.string.base_url))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -25,7 +25,7 @@ public class AmiiboWebService {
                 .build().create(AmiiboApi.class);
     }
 
-    public Observable<List<Amiibo>> getAmiiboByName(String name) {
+    Observable<List<Amiibo>> getAmiibosByName(String name) {
         return api.getAmiiboByName(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -16,6 +16,7 @@ public class AmiiboRepository {
     }
 
     public Observable<List<Amiibo>> getAmiibosByName(String name) {
-        return webService.getAmiiboByName(name);
+        return webService.getAmiibosByName(name);
     }
+
 }
