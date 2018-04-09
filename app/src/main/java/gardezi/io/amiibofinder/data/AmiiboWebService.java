@@ -7,6 +7,7 @@ import java.util.List;
 import gardezi.io.amiibofinder.R;
 import gardezi.io.amiibofinder.model.Amiibo;
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
@@ -25,7 +26,7 @@ public class AmiiboWebService {
                 .build().create(AmiiboApi.class);
     }
 
-    Observable<List<Amiibo>> getAmiibosByName(String name) {
+    Single<List<Amiibo>> getAmiibosByName(String name) {
         return api.getAmiiboByName(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
