@@ -4,9 +4,8 @@ import android.app.Application
 
 import gardezi.io.amiibofinder.R
 import gardezi.io.amiibofinder.model.Amiibo
-import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -20,7 +19,7 @@ class AmiiboWebService internal constructor(application: Application) {
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(AmiiboApi::class.java)
 
-    fun getAmiibosByName(name: String): Observable<List<Amiibo>> {
+    fun getAmiibosByName(name: String): Single<List<Amiibo>> {
         return api.getAmiiboByName(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

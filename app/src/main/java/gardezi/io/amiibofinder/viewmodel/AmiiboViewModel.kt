@@ -8,6 +8,7 @@ import gardezi.io.amiibofinder.data.AmiiboRepository
 import gardezi.io.amiibofinder.model.Amiibo
 import gardezi.io.amiibofinder.rx.RxAndroidViewModel
 import io.reactivex.Observer
+import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
 
 class AmiiboViewModel(application: Application) : RxAndroidViewModel(application) {
@@ -16,20 +17,16 @@ class AmiiboViewModel(application: Application) : RxAndroidViewModel(application
 
     private val repository = AmiiboRepository(application)
 
-    private var isQueryingAmiibos: Boolean = false
+    private var isQueryingAmiibos = false
 
     fun getAmiibosByName(name: String) {
-        repository.getAmiibosByName(name).subscribe(object : Observer<List<Amiibo>> {
+        repository.getAmiibosByName(name).subscribe(object : SingleObserver<List<Amiibo>> {
             override fun onSubscribe(d: Disposable) {
                 addDisposable(d)
                 if (isQueryingAmiibos) {
                     clearDisposables()
                 }
                 isQueryingAmiibos = true
-            }
-
-            override fun onNext(amiibos: List<Amiibo>) {
-                this@AmiiboViewModel.amiibos.postValue(amiibos)
             }
 
             override fun onError(e: Throwable) {
@@ -39,9 +36,11 @@ class AmiiboViewModel(application: Application) : RxAndroidViewModel(application
 
             }
 
-            override fun onComplete() {
+            override fun onSuccess(t: List<Amiibo>) {
+                this@AmiiboViewModel.amiibos.postValue(t)
                 isQueryingAmiibos = false
             }
+
         })
     }
 

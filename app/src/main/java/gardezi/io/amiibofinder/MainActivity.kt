@@ -1,6 +1,5 @@
 package gardezi.io.amiibofinder
 
-import android.app.Activity
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -14,21 +13,17 @@ import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private var mAmiiboViewModel: AmiiboViewModel? = null
-    private var mAmiiboListFragment: AmiiboListFragment? = null
+    private var mAmiiboViewModel = ViewModelProviders.of(this).get(AmiiboViewModel::class.java)
+    private var mAmiiboListFragment = AmiiboListFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mAmiiboViewModel = ViewModelProviders.of(this).get(AmiiboViewModel::class.java)
-        mAmiiboViewModel!!.getAmiibosByName(AMIIBO_NAME_MARIO)
-        showAmiiboListFragment()
+        showAmiiboList()
     }
 
-    private fun showAmiiboListFragment() {
-        if (mAmiiboListFragment == null) {
-            mAmiiboListFragment = AmiiboListFragment()
-        }
+    private fun showAmiiboList() {
+        mAmiiboViewModel.getAmiibosByName(AMIIBO_NAME_MARIO)
         supportFragmentManager.beginTransaction().replace(R.id.container, mAmiiboListFragment).commit()
     }
 

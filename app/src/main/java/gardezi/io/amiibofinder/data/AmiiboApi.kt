@@ -1,13 +1,12 @@
 package gardezi.io.amiibofinder.data
 
-
-import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface AmiiboApi {
 
     @GET("amiibo/")
-    fun getAmiiboByName(@Query("name") name: String): Observable<AmiiboPayload>
+    fun getAmiiboByName(@Query("name") name: String): Single<AmiiboPayload>
 
 }
