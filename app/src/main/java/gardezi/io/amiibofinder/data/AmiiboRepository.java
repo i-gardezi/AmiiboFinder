@@ -6,6 +6,7 @@ import java.util.List;
 
 import gardezi.io.amiibofinder.model.Amiibo;
 import io.reactivex.Observable;
+import io.reactivex.Single;
 
 public class AmiiboRepository {
 
@@ -15,7 +16,7 @@ public class AmiiboRepository {
         this.webService = new AmiiboWebService(application);
     }
 
-    public Observable<List<Amiibo>> getAmiibosByName(String name) {
+    public Single<List<Amiibo>> getAmiibosByName(String name) {
         return webService.getAmiibosByName(name);
     }
 
