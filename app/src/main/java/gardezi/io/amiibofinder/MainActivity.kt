@@ -13,12 +13,13 @@ import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private var mAmiiboViewModel = ViewModelProviders.of(this).get(AmiiboViewModel::class.java)
+    private lateinit var mAmiiboViewModel : AmiiboViewModel
     private var mAmiiboListFragment = AmiiboListFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        mAmiiboViewModel = ViewModelProviders.of(this).get(AmiiboViewModel::class.java)
         showAmiiboList()
     }
 
