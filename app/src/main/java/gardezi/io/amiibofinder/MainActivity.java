@@ -1,6 +1,5 @@
 package gardezi.io.amiibofinder;
 
-import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
