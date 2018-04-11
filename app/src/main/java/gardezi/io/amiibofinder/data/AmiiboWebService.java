@@ -4,6 +4,8 @@ import android.app.Application;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import gardezi.io.amiibofinder.R;
 import gardezi.io.amiibofinder.model.Amiibo;
 import io.reactivex.Observable;
@@ -18,12 +20,8 @@ public class AmiiboWebService {
 
     private AmiiboApi api;
 
-    AmiiboWebService(Application application) {
-        api = new Retrofit.Builder()
-                .baseUrl(application.getResources().getString(R.string.base_url))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(AmiiboApi.class);
+    public AmiiboWebService(Retrofit retrofit) {
+        api = retrofit.create(AmiiboApi.class);
     }
 
     Single<List<Amiibo>> getAmiibosByName(String name) {

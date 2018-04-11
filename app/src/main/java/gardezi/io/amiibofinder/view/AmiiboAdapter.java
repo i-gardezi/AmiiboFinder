@@ -19,14 +19,11 @@ import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel;
 public class AmiiboAdapter extends RecyclerView.Adapter {
 
     private List<Amiibo> mAmiibos = new ArrayList<>();
-    private AmiiboViewModel mAmiiboViewModel;
 
-    public AmiiboAdapter(Context context) {
-        mAmiiboViewModel = ViewModelProviders.of((FragmentActivity) context).get(AmiiboViewModel.class);
-        mAmiiboViewModel.getAmiibos().observe((FragmentActivity) context, this::updateData);
+    public AmiiboAdapter() {
     }
 
-    private void updateData(List<Amiibo> amiibos) {
+    public void updateData(List<Amiibo> amiibos) {
         mAmiibos = amiibos;
         notifyDataSetChanged();
     }
