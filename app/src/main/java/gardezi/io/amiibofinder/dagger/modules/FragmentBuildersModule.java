@@ -1,4 +1,4 @@
-package gardezi.io.amiibofinder.dagger;
+package gardezi.io.amiibofinder.dagger.modules;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
