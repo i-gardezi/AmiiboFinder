@@ -14,11 +14,17 @@ class AmiiboApplication : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
+        instance = this
         AppInjector.init(this)
     }
 
     override fun activityInjector(): DispatchingAndroidInjector<Activity>? {
         return dispatchingAndroidInjector
+    }
+
+    companion object {
+        var instance: AmiiboApplication? = null
+            private set
     }
 
 }

@@ -37,7 +37,7 @@ class AmiiboListFragment : Fragment(), Injectable {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val mAmiiboViewModel = ViewModelProviders.of(this, viewModelFactory).get(AmiiboViewModel::class.java!!)
+        val mAmiiboViewModel = ViewModelProviders.of(this, viewModelFactory).get(AmiiboViewModel::class.java)
         mAmiiboViewModel.getAmiibosByName("Mario")
         mAmiiboViewModel.amiibos.observe(this, Observer { it -> mAdapter.updateData(it) })
     }

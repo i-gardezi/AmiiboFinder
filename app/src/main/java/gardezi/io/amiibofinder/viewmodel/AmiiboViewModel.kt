@@ -6,38 +6,39 @@ import gardezi.io.amiibofinder.data.AmiiboRepository
 import gardezi.io.amiibofinder.model.Amiibo
 import gardezi.io.amiibofinder.rx.RxAndroidViewModel
 import io.reactivex.SingleObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
-class AmiiboViewModel @Inject constructor(var repository: AmiiboRepository) : RxAndroidViewModel() {
+class AmiiboViewModel @Inject
+constructor(private val repository: AmiiboRepository) : RxAndroidViewModel() {
 
     val amiibos = MutableLiveData<List<Amiibo>>()
 
-    private var isQueryingAmiibos = false
+    private var isQueryingAmiibos: Boolean = false
 
     fun getAmiibosByName(name: String) {
-        repository.getAmiibosByName(name).subscribe(object : SingleObserver<List<Amiibo>> {
-            override fun onSubscribe(d: Disposable) {
-                addDisposable(d)
-                if (isQueryingAmiibos) {
-                    clearDisposables()
-                }
-                isQueryingAmiibos = true
-            }
+        repository.getAmiibosByName(name)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : SingleObserver<List<Amiibo>> {
+                    override fun onSubscribe(d: Disposable) {
+                        addDisposable(d)
+                        if (isQueryingAmiibos) {
+                            clearDisposables()
+                        }
+                        isQueryingAmiibos = true
+                    }
 
-            override fun onError(e: Throwable) {
-                amiibos.postValue(null)
-                isQueryingAmiibos = false
-                Log.e("AmiiboViewModel", "Error retrieving Amiibos by Name", e)
+                    override fun onSuccess(amiibos: List<Amiibo>) {
+                        this@AmiiboViewModel.amiibos.postValue(amiibos)
+                    }
 
-            }
-
-            override fun onSuccess(t: List<Amiibo>) {
-                this@AmiiboViewModel.amiibos.postValue(t)
-                isQueryingAmiibos = false
-            }
-
-        })
+                    override fun onError(e: Throwable) {
+                        amiibos.postValue(null)
+                        isQueryingAmiibos = false
+                        Log.e("AmiiboViewModel", "Error retrieving Amiibos by Name", e)
+                    }
+                })
     }
 
 

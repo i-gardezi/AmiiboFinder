@@ -1,5 +1,6 @@
-package gardezi.io.amiibofinder.data
+package gardezi.io.amiibofinder.data.network
 
+import gardezi.io.amiibofinder.data.AmiiboApi
 import gardezi.io.amiibofinder.model.Amiibo
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,10 +15,9 @@ class AmiiboWebService(retrofit: Retrofit) {
         api = retrofit.create(AmiiboApi::class.java)
     }
 
-    internal fun getAmiibosByName(name: String): Single<List<Amiibo>> {
+    fun getAmiibosByName(name: String): Single<List<Amiibo>> {
         return api.getAmiiboByName(name)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .map({ it.amiibo })
     }
 }

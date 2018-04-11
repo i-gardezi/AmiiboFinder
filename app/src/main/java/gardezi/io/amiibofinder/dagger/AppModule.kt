@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import gardezi.io.amiibofinder.data.AmiiboApi
 import gardezi.io.amiibofinder.data.AmiiboRepository
-import gardezi.io.amiibofinder.data.AmiiboWebService
+import gardezi.io.amiibofinder.data.network.AmiiboWebService
 import gardezi.io.amiibofinder.viewmodel.CustomViewModelFactory
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -20,17 +20,6 @@ import javax.inject.Singleton
 
 @Module(subcomponents = arrayOf(ViewModelSubComponent::class))
 class AppModule {
-
-    @Singleton
-    @Provides
-    internal fun provideAmiiboRepository(): AmiiboRepository {
-        val retrofit = Retrofit.Builder()
-                .baseUrl(AmiiboApi.baseUrl)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        return AmiiboRepository(AmiiboWebService(retrofit))
-    }
 
     @Singleton
     @Provides

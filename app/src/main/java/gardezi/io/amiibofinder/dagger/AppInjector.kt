@@ -11,6 +11,7 @@ import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
 import gardezi.io.amiibofinder.AmiiboApplication
+import gardezi.io.amiibofinder.dagger.components.DaggerAppComponent
 
 object AppInjector {
 

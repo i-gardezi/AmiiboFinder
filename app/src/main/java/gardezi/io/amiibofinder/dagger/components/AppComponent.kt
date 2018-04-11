@@ -1,13 +1,17 @@
-package gardezi.io.amiibofinder.dagger
+package gardezi.io.amiibofinder.dagger.components
+
+import javax.inject.Singleton
 
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import gardezi.io.amiibofinder.AmiiboApplication
-import javax.inject.Singleton
+import gardezi.io.amiibofinder.dagger.AppModule
+import gardezi.io.amiibofinder.dagger.MainActivityModule
+import gardezi.io.amiibofinder.dagger.modules.DataModule
 
 @Singleton
-@Component(modules = arrayOf(AndroidInjectionModule::class, AppModule::class, MainActivityModule::class))
+@Component(modules = [(AndroidInjectionModule::class), (AppModule::class), (MainActivityModule::class), (DataModule::class)])
 interface AppComponent {
 
     @Component.Builder
