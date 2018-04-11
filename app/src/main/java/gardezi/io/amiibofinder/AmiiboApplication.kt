@@ -2,12 +2,10 @@ package gardezi.io.amiibofinder
 
 import android.app.Activity
 import android.app.Application
-
-import javax.inject.Inject
-
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import gardezi.io.amiibofinder.dagger.AppInjector
+import javax.inject.Inject
 
 class AmiiboApplication : Application(), HasActivityInjector {
 

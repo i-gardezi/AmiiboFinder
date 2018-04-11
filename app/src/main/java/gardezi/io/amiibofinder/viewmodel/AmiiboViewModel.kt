@@ -1,13 +1,10 @@
 package gardezi.io.amiibofinder.viewmodel
 
-import android.app.Application
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
-
 import gardezi.io.amiibofinder.data.AmiiboRepository
 import gardezi.io.amiibofinder.model.Amiibo
 import gardezi.io.amiibofinder.rx.RxAndroidViewModel
-import io.reactivex.Observer
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject

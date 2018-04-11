@@ -1,11 +1,10 @@
 package gardezi.io.amiibofinder.dagger
 
-import javax.inject.Singleton
-
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import gardezi.io.amiibofinder.AmiiboApplication
+import javax.inject.Singleton
 
 @Singleton
 @Component(modules = arrayOf(AndroidInjectionModule::class, AppModule::class, MainActivityModule::class))

@@ -1,9 +1,6 @@
 package gardezi.io.amiibofinder.rx
 
-import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
-
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
