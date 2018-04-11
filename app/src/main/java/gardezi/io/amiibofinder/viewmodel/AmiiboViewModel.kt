@@ -10,12 +10,11 @@ import gardezi.io.amiibofinder.rx.RxAndroidViewModel
 import io.reactivex.Observer
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
+import javax.inject.Inject
 
-class AmiiboViewModel(application: Application) : RxAndroidViewModel(application) {
+class AmiiboViewModel @Inject constructor(var repository: AmiiboRepository) : RxAndroidViewModel() {
 
     val amiibos = MutableLiveData<List<Amiibo>>()
-
-    private val repository = AmiiboRepository(application)
 
     private var isQueryingAmiibos = false
 

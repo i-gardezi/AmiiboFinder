@@ -15,18 +15,15 @@ import gardezi.io.amiibofinder.databinding.AmiiboListItemBinding
 import gardezi.io.amiibofinder.model.Amiibo
 import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel
 
-class AmiiboAdapter(context: Context) : RecyclerView.Adapter<AmiiboAdapter.AmiiboViewHolder>() {
+class AmiiboAdapter() : RecyclerView.Adapter<AmiiboAdapter.AmiiboViewHolder>() {
 
     private var mAmiibos: List<Amiibo> = ArrayList()
-    private val mAmiiboViewModel = ViewModelProviders.of(context as FragmentActivity).get(AmiiboViewModel::class.java)
 
-    init {
-        mAmiiboViewModel.amiibos.observe(context as FragmentActivity, Observer { if (it != null) this.updateData(it) })
-    }
-
-    private fun updateData(amiibos: List<Amiibo>) {
-        mAmiibos = amiibos
-        notifyDataSetChanged()
+    public fun updateData(amiibos: List<Amiibo>?) {
+        if (amiibos != null && amiibos.isNotEmpty()) {
+            mAmiibos = amiibos
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AmiiboViewHolder {
