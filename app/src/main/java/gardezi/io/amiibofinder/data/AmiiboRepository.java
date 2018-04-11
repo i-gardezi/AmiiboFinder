@@ -1,25 +1,14 @@
 package gardezi.io.amiibofinder.data;
 
-import android.annotation.SuppressLint;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import gardezi.io.amiibofinder.data.database.AppDatabase;
 import gardezi.io.amiibofinder.data.database.dao.AmiiboDAO;
 import gardezi.io.amiibofinder.data.network.AmiiboWebService;
 import gardezi.io.amiibofinder.model.Amiibo;
-import io.reactivex.Completable;
-import io.reactivex.CompletableObserver;
 import io.reactivex.Single;
-import io.reactivex.SingleSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 
 @Singleton
 public class AmiiboRepository {

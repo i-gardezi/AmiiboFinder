@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import gardezi.io.amiibofinder.dagger.injector.AppInjector;
-import gardezi.io.amiibofinder.data.network.AmiiboApi;
 
 public class AmiiboApplication extends Application implements HasActivityInjector {
 

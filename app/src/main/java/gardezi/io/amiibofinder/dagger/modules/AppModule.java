@@ -7,14 +7,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import gardezi.io.amiibofinder.dagger.components.ViewModelSubComponent;
-import gardezi.io.amiibofinder.data.network.AmiiboApi;
-import gardezi.io.amiibofinder.data.AmiiboRepository;
-import gardezi.io.amiibofinder.data.network.AmiiboWebService;
-import gardezi.io.amiibofinder.model.Amiibo;
 import gardezi.io.amiibofinder.viewmodel.CustomViewModelFactory;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 // Because we wish to setup caching, we need an Application context.
 // Our first Dagger module, AppModule.java, will be used to provide this reference.

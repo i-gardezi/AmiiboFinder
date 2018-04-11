@@ -4,7 +4,6 @@ import java.util.List;
 
 import gardezi.io.amiibofinder.model.Amiibo;
 import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
