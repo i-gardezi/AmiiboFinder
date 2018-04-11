@@ -11,6 +11,7 @@ import gardezi.io.amiibofinder.data.AmiiboRepository;
 import gardezi.io.amiibofinder.model.Amiibo;
 import gardezi.io.amiibofinder.rx.RxAndroidViewModel;
 import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
 public class AmiiboViewModel extends RxAndroidViewModel {
@@ -27,7 +28,9 @@ public class AmiiboViewModel extends RxAndroidViewModel {
     }
 
     public void getAmiibosByName(String name) {
-        repository.getAmiibosByName(name).subscribe(new SingleObserver<List<Amiibo>>() {
+        repository.getAmiibosByName(name)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<List<Amiibo>>() {
             @Override
             public void onSubscribe(Disposable d) {
                 addDisposable(d);

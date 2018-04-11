@@ -7,11 +7,16 @@ import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import gardezi.io.amiibofinder.AmiiboApplication;
 import gardezi.io.amiibofinder.dagger.modules.AppModule;
+import gardezi.io.amiibofinder.dagger.modules.DataModule;
 import gardezi.io.amiibofinder.dagger.modules.MainActivityModule;
-import gardezi.io.amiibofinder.dagger.modules.NetworkModule;
 
 @Singleton
-@Component(modules = {AndroidInjectionModule.class, AppModule.class, MainActivityModule.class, NetworkModule.class})
+@Component(modules = {
+        AndroidInjectionModule.class,
+        AppModule.class,
+        MainActivityModule.class,
+        DataModule.class
+})
 public interface AppComponent {
 
     @Component.Builder

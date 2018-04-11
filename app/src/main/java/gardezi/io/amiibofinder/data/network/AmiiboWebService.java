@@ -19,7 +19,6 @@ public class AmiiboWebService {
     public Single<List<Amiibo>> getAmiibosByName(String name) {
         return api.getAmiiboByName(name)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .map(AmiiboPayload::getAmiibo);
     }
 }
