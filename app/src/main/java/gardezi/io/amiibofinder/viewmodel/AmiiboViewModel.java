@@ -10,7 +10,6 @@ import java.util.List;
 import gardezi.io.amiibofinder.data.AmiiboRepository;
 import gardezi.io.amiibofinder.model.Amiibo;
 import gardezi.io.amiibofinder.rx.RxAndroidViewModel;
-import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
