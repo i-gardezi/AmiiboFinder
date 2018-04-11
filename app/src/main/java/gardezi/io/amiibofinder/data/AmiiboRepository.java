@@ -1,7 +1,5 @@
 package gardezi.io.amiibofinder.data;
 
-import android.app.Application;
-
 import java.util.List;
 
 import javax.inject.Inject;

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import javax.inject.Inject;
 
 import gardezi.io.amiibofinder.R;
 import gardezi.io.amiibofinder.dagger.Injectable;
-import gardezi.io.amiibofinder.data.AmiiboApi;
 import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel;
 
 /**

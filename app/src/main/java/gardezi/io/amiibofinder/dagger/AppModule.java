@@ -1,13 +1,11 @@
 package gardezi.io.amiibofinder.dagger;
 
-import android.app.Application;
 import android.arch.lifecycle.ViewModelProvider;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import gardezi.io.amiibofinder.AmiiboApplication;
 import gardezi.io.amiibofinder.data.AmiiboApi;
 import gardezi.io.amiibofinder.data.AmiiboRepository;
 import gardezi.io.amiibofinder.data.AmiiboWebService;

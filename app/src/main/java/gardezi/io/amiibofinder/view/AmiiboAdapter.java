@@ -1,10 +1,7 @@
 package gardezi.io.amiibofinder.view;
 
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -14,7 +11,6 @@ import java.util.List;
 
 import gardezi.io.amiibofinder.databinding.AmiiboListItemBinding;
 import gardezi.io.amiibofinder.model.Amiibo;
-import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel;
 
 public class AmiiboAdapter extends RecyclerView.Adapter {
 
