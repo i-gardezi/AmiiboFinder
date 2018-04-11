@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 
-import gardezi.io.amiibofinder.dagger.ViewModelSubComponent;
+import gardezi.io.amiibofinder.dagger.components.ViewModelSubComponent;
 
 @Singleton
 public class CustomViewModelFactory implements ViewModelProvider.Factory {

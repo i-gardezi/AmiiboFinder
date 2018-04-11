@@ -1,4 +1,4 @@
-package gardezi.io.amiibofinder.dagger;
+package gardezi.io.amiibofinder.dagger.injector;
 
 import android.app.Activity;
 import android.app.Application;
@@ -11,6 +11,7 @@ import dagger.android.AndroidInjection;
 import dagger.android.support.AndroidSupportInjection;
 import dagger.android.support.HasSupportFragmentInjector;
 import gardezi.io.amiibofinder.AmiiboApplication;
+import gardezi.io.amiibofinder.dagger.components.DaggerAppComponent;
 
 public class AppInjector {
     private AppInjector() {

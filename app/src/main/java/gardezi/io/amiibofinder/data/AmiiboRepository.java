@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import gardezi.io.amiibofinder.data.network.AmiiboWebService;
 import gardezi.io.amiibofinder.model.Amiibo;
 import io.reactivex.Single;
 

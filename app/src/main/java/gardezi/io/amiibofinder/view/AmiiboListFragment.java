@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import javax.inject.Inject;
 
 import gardezi.io.amiibofinder.R;
-import gardezi.io.amiibofinder.dagger.Injectable;
+import gardezi.io.amiibofinder.dagger.injector.Injectable;
 import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel;
 
 /**

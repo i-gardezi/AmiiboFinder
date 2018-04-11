@@ -1,4 +1,4 @@
-package gardezi.io.amiibofinder.dagger;
+package gardezi.io.amiibofinder.dagger.components;
 
 import dagger.Subcomponent;
 import gardezi.io.amiibofinder.viewmodel.AmiiboViewModel;

@@ -1,4 +1,4 @@
-package gardezi.io.amiibofinder.data
+package gardezi.io.amiibofinder.data.network
 
 import gardezi.io.amiibofinder.model.Amiibo
 
