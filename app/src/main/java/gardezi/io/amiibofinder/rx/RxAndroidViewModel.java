@@ -1,18 +1,16 @@
 package gardezi.io.amiibofinder.rx;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.support.annotation.NonNull;
+import android.arch.lifecycle.ViewModel;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public abstract class RxAndroidViewModel extends AndroidViewModel {
+public abstract class RxAndroidViewModel extends ViewModel {
 
     private final CompositeDisposable disposables = new CompositeDisposable();
 
-    public RxAndroidViewModel(@NonNull Application application) {
-        super(application);
+    public RxAndroidViewModel() {
+
     }
 
     protected void addDisposable(Disposable disposable) {

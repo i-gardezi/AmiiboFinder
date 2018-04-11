@@ -1,11 +1,11 @@
 package gardezi.io.amiibofinder.viewmodel;
 
-import android.app.Application;
 import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import gardezi.io.amiibofinder.data.AmiiboRepository;
 import gardezi.io.amiibofinder.model.Amiibo;
@@ -17,13 +17,13 @@ public class AmiiboViewModel extends RxAndroidViewModel {
 
     private MutableLiveData<List<Amiibo>> amiibos = new MutableLiveData<>();
 
-    private AmiiboRepository repository;
+    private final AmiiboRepository repository;
 
     private boolean isQueryingAmiibos;
 
-    public AmiiboViewModel(@NonNull Application application) {
-        super(application);
-        repository = new AmiiboRepository(application);
+    @Inject
+    public AmiiboViewModel(AmiiboRepository amiiboRepository) {
+        repository = amiiboRepository;
     }
 
     public void getAmiibosByName(String name) {
