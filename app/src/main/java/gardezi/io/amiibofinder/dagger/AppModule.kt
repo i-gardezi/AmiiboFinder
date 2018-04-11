@@ -3,13 +3,7 @@ package gardezi.io.amiibofinder.dagger
 import android.arch.lifecycle.ViewModelProvider
 import dagger.Module
 import dagger.Provides
-import gardezi.io.amiibofinder.data.AmiiboApi
-import gardezi.io.amiibofinder.data.AmiiboRepository
-import gardezi.io.amiibofinder.data.network.AmiiboWebService
 import gardezi.io.amiibofinder.viewmodel.CustomViewModelFactory
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 // Because we wish to setup caching, we need an Application context.

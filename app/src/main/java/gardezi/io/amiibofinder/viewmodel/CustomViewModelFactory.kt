@@ -3,12 +3,10 @@ package gardezi.io.amiibofinder.viewmodel
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.util.ArrayMap
-
+import gardezi.io.amiibofinder.dagger.ViewModelSubComponent
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
-
-import gardezi.io.amiibofinder.dagger.ViewModelSubComponent
 
 @Singleton
 class CustomViewModelFactory @Inject
