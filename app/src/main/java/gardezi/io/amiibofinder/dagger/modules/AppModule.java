@@ -10,6 +10,7 @@ import gardezi.io.amiibofinder.dagger.components.ViewModelSubComponent;
 import gardezi.io.amiibofinder.data.network.AmiiboApi;
 import gardezi.io.amiibofinder.data.AmiiboRepository;
 import gardezi.io.amiibofinder.data.network.AmiiboWebService;
+import gardezi.io.amiibofinder.model.Amiibo;
 import gardezi.io.amiibofinder.viewmodel.CustomViewModelFactory;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -23,17 +24,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module(subcomponents = {ViewModelSubComponent.class})
 public class AppModule {
-
-    @Singleton
-    @Provides
-    AmiiboRepository provideAmiiboRepository() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(AmiiboApi.HTTPS_API_AMIIBO_URL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        return new AmiiboRepository(new AmiiboWebService(retrofit));
-    }
 
     @Singleton
     @Provides
